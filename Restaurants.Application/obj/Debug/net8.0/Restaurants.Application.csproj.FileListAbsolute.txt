@@ -1,0 +1,16 @@
+/Volumes/Dane/GitRepositories/Restaurants/Restaurants.Application/bin/Debug/net8.0/Restaurants.Application.deps.json
+/Volumes/Dane/GitRepositories/Restaurants/Restaurants.Application/bin/Debug/net8.0/Restaurants.Application.dll
+/Volumes/Dane/GitRepositories/Restaurants/Restaurants.Application/bin/Debug/net8.0/Restaurants.Application.pdb
+/Volumes/Dane/GitRepositories/Restaurants/Restaurants.Application/bin/Debug/net8.0/Restaurants.Domain.dll
+/Volumes/Dane/GitRepositories/Restaurants/Restaurants.Application/bin/Debug/net8.0/Restaurants.Domain.pdb
+/Volumes/Dane/GitRepositories/Restaurants/Restaurants.Application/obj/Debug/net8.0/Restaurants.Application.csproj.AssemblyReference.cache
+/Volumes/Dane/GitRepositories/Restaurants/Restaurants.Application/obj/Debug/net8.0/Restaurants.Application.GeneratedMSBuildEditorConfig.editorconfig
+/Volumes/Dane/GitRepositories/Restaurants/Restaurants.Application/obj/Debug/net8.0/Restaurants.Application.AssemblyInfoInputs.cache
+/Volumes/Dane/GitRepositories/Restaurants/Restaurants.Application/obj/Debug/net8.0/Restaurants.Application.AssemblyInfo.cs
+/Volumes/Dane/GitRepositories/Restaurants/Restaurants.Application/obj/Debug/net8.0/Restaurants.Application.csproj.CoreCompileInputs.cache
+/Volumes/Dane/GitRepositories/Restaurants/Restaurants.Application/obj/Debug/net8.0/Restaurants.Application.sourcelink.json
+/Volumes/Dane/GitRepositories/Restaurants/Restaurants.Application/obj/Debug/net8.0/Restaura.6AB96A7C.Up2Date
+/Volumes/Dane/GitRepositories/Restaurants/Restaurants.Application/obj/Debug/net8.0/Restaurants.Application.dll
+/Volumes/Dane/GitRepositories/Restaurants/Restaurants.Application/obj/Debug/net8.0/refint/Restaurants.Application.dll
+/Volumes/Dane/GitRepositories/Restaurants/Restaurants.Application/obj/Debug/net8.0/Restaurants.Application.pdb
+/Volumes/Dane/GitRepositories/Restaurants/Restaurants.Application/obj/Debug/net8.0/ref/Restaurants.Application.dll
