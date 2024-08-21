@@ -3,22 +3,25 @@
 # Restaurant endpoints
 ### Get all restaurants
 GET http://localhost:5193/api/Restaurants
+
 ### Get restaurant by Id
 GET http://localhost:5193/api/Restaurants/1
+
 ### Restaurant not found
 GET http://localhost:5193/api/Restaurants/12
+
 ### Add new restaurant
 POST http://localhost:5193/api/Restaurants
 Content-Type: application/json
 
 {
-    "Name":"Test Restaurant", 
-    "Description":"Test Description", 
-    "Category":"Polish",
-    "HasDelivery": true,
-    "ContactEmail":"test@test.com",
-    "ContactNumber":"123456789",
-    "City":"Test City",
-    "Street":"Test Street",
-    "PostalCode":"22-222"
+  "Name": "Test Restaurant",
+  "Description": "Test Description",
+  "Category": "Polish",
+  "HasDelivery": true,
+  "ContactEmail": "test@test.com",
+  "ContactNumber": "123456789",
+  "City": "Test City",
+  "Street": "Test Street",
+  "PostalCode": "22-222"
 }

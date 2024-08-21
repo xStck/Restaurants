@@ -19,7 +19,7 @@ public class RestaurantsController(IRestaurantsService restaurantsService) : Con
     public async Task<IActionResult> GetById([FromRoute] int id)
     {
         var restaurant = await restaurantsService.GetByIdAsync(id);
-        if (restaurant is null) 
+        if (restaurant is null)
             return NotFound();
         return Ok(restaurant);
     }

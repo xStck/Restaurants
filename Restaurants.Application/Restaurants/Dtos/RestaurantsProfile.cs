@@ -24,7 +24,7 @@ public class RestaurantsProfile : Profile
                 opt => opt.MapFrom(src => src.Dishes));
 
         CreateMap<CreateRestaurantDto, Restaurant>()
-            .ForMember(d => d.Address, opt => opt.MapFrom(src => new Address()
+            .ForMember(d => d.Address, opt => opt.MapFrom(src => new Address
             {
                 City = src.City,
                 PostalCode = src.PostalCode,

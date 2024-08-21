@@ -8,20 +8,19 @@ internal class RestaurantSeeder(RestaurantsDbContext dbContext) : IRestaurantSee
     public async Task Seed()
     {
         if (await dbContext.Database.CanConnectAsync())
-        {
             if (!dbContext.Restaurants.Any())
             {
                 var restaurants = GetRestaurants();
                 dbContext.Restaurants.AddRange(restaurants);
                 await dbContext.SaveChangesAsync();
             }
-        }
     }
 
     private IEnumerable<Restaurant> GetRestaurants()
     {
-        List<Restaurant> restaurants = [
-            new()
+        List<Restaurant> restaurants =
+        [
+            new Restaurant
             {
                 Name = "KFC",
                 Category = "Fast Food",
@@ -31,29 +30,28 @@ internal class RestaurantSeeder(RestaurantsDbContext dbContext) : IRestaurantSee
                 HasDelivery = true,
                 Dishes =
                 [
-                    new ()
+                    new Dish
                     {
                         Name = "Nashville Hot Chicken",
                         Description = "Nashville Hot Chicken (10 pcs.)",
-                        Price = 10.30M,
+                        Price = 10.30M
                     },
 
-                    new ()
+                    new Dish
                     {
                         Name = "Chicken Nuggets",
                         Description = "Chicken Nuggets (5 pcs.)",
-                        Price = 5.30M,
-                    },
+                        Price = 5.30M
+                    }
                 ],
-                Address = new ()
+                Address = new Address
                 {
                     City = "London",
                     Street = "Cork St 5",
                     PostalCode = "WC2N 5DU"
-                },
-                
+                }
             },
-            new ()
+            new Restaurant
             {
                 Name = "McDonald",
                 Category = "Fast Food",
@@ -61,7 +59,7 @@ internal class RestaurantSeeder(RestaurantsDbContext dbContext) : IRestaurantSee
                     "McDonald's Corporation (McDonald's), incorporated on December 21, 1964, operates and franchises McDonald's restaurants.",
                 ContactEmail = "contact@mcdonald.com",
                 HasDelivery = true,
-                Address = new Address()
+                Address = new Address
                 {
                     City = "London",
                     Street = "Boots 193",
