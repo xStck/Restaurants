@@ -30,7 +30,7 @@ Content-Type: application/json
 DELETE http://localhost:5193/api/Restaurants/1
 
 ### Update restaurant
-PATCH http://localhost:5193/api/Restaurants/999
+PATCH http://localhost:5193/api/Restaurants/9
 Content-Type: application/json
 
 {
