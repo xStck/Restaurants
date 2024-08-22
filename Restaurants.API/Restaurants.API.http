@@ -11,7 +11,7 @@ GET http://localhost:5193/api/Restaurants/2
 GET http://localhost:5193/api/Restaurants/12
 
 ### Add new restaurant
-POST http://localhost:5193/api/Restaurants
+POST  api/Restaurants
 Content-Type: application/json
 
 {
