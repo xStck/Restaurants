@@ -1,3 +1,5 @@
+using Restaurants.Domain.Exceptions;
+
 namespace Restaurants.API.Middlewares;
 
 public class ErrorHandlingMiddleware(ILogger<ErrorHandlingMiddleware> logger) : IMiddleware
@@ -7,6 +9,12 @@ public class ErrorHandlingMiddleware(ILogger<ErrorHandlingMiddleware> logger) : 
         try
         {
             await next.Invoke(context);
+        }
+        catch (NotFoundException nfe)
+        {
+            logger.LogWarning(nfe.Message);
+            context.Response.StatusCode = 404;
+            await context.Response.WriteAsync(nfe.Message);
         }
         catch (Exception e)
         {
