@@ -15,14 +15,15 @@ public class GetDishByIdForRestaurantQueryHandler(
 {
     public async Task<DishDto> Handle(GetDishByIdForRestaurantQuery request, CancellationToken cancellationToken)
     {
-        logger.LogInformation("Retrieving dish with id {@DishId} for restaurant with id: {@RestaurantId}", request.DishId, request.RestaurantId);
+        logger.LogInformation("Retrieving dish with id {@DishId} for restaurant with id: {@RestaurantId}",
+            request.DishId, request.RestaurantId);
         var restaurant = await restaurantsRepository.GetByIdAsync(request.RestaurantId);
-        if(restaurant is null)
+        if (restaurant is null)
             throw new NotFoundException(nameof(Restaurant), request.RestaurantId.ToString());
         var dish = restaurant.Dishes.FirstOrDefault(d => d.Id == request.DishId);
-        if(dish is null)
+        if (dish is null)
             throw new NotFoundException(nameof(Dish), request.DishId.ToString());
         var result = mapper.Map<DishDto>(dish);
-        return result;    
+        return result;
     }
 }

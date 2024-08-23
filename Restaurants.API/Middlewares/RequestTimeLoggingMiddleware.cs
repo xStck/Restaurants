@@ -10,9 +10,7 @@ public class RequestTimeLoggingMiddleware(ILogger<RequestTimeLoggingMiddleware> 
         await next.Invoke(context);
         stopwatch.Stop();
         if (stopwatch.ElapsedMilliseconds / 1000 > 4)
-        {
             logger.LogInformation("Request [{Verb}] at {Path} took {Time} ms", context.Request.Method,
                 context.Request.Path, stopwatch.ElapsedMilliseconds);
-        }
     }
 }
