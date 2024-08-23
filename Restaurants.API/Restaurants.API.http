@@ -38,3 +38,28 @@ Content-Type: application/json
   "Description": "Modified description",
   "HasDelivery": true
 }
+
+### Create dish
+POST http://localhost:5193/api/restaurant/2/dishes
+Content-Type: application/json
+
+{
+  "name": "Example Dish",
+  "description": "Delicious dish made with fresh ingredients.",
+  "price": 2,
+  "kiloCalories": 2,
+  "restaurantId": 1
+}
+
+### Get all dishes for specific restaurant
+GET http://localhost:5193/api/restaurant/2/dishes
+
+### Get dish by id for specific restaurant
+GET http://localhost:5193/api/restaurant/2/dishes/8
+
+### Delete all dishes for specific restaurant
+DELETE http://localhost:5193/api/restaurant/2222/dishes
+
+### Delete dish by id for specific restaurant
+DELETE http://localhost:5193/api/restaurant/2/dishes/6
+
