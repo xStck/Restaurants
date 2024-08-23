@@ -12,6 +12,7 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddControllers();
 builder.Services.AddSwaggerGen();
 builder.Services.AddScoped<ErrorHandlingMiddleware>();
+builder.Services.AddScoped<RequestTimeLoggingMiddleware>();
 builder.Services.AddInfrastructure(builder.Configuration);
 builder.Services.AddApplication();
 builder.Host.UseSerilog((context, configuration) => { configuration.ReadFrom.Configuration(context.Configuration); });
@@ -21,6 +22,7 @@ var servicesProvider = scope.ServiceProvider;
 var seeder = servicesProvider.GetRequiredService<IRestaurantSeeder>();
 await seeder.Seed();
 // Configure the HTTP request pipeline.
+app.UseMiddleware<RequestTimeLoggingMiddleware>();
 app.UseMiddleware<ErrorHandlingMiddleware>();
 app.UseSerilogRequestLogging();
 if (app.Environment.IsDevelopment())

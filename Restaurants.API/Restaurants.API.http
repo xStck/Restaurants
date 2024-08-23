@@ -8,7 +8,7 @@ GET http://localhost:5193/api/Restaurants
 GET http://localhost:5193/api/Restaurants/2
 
 ### Restaurant not found
-GET http://localhost:5193/api/Restaurants/122
+GET http://localhost:5193/api/Restaurants/2
 
 ### Add new restaurant
 POST  api/Restaurants
