@@ -1,11 +1,13 @@
 @Restaurants.API_HostAddress = http://localhost:5193
-
+@token = CfDJ8I1opdSQg8FCuZ6ipOkfd9nrRQDl4lQEXnmdHt-uo454NLZzj7Qkmr3h4xzWD7wbS0zvQK-BO5BDs9vHPgP8VY4BlQhIdy93bB2wgqj8zlmQYRoHY0R47rXORudxAxta590YuR5enk3bD-om6gJx4GoeNfBTAIcsmiX4GXGWmtWkANrguZ9teli8PevaecQFLQy8PEQb--8T-o6sCJKeL97gz1tgBp55YXH_HCkmID3U3rDJvq42EKv9Mg1wzlCg9UKG_9F-aVwMFKbWpWxO-q1PGoqZ_tSQoS5zJIwTtQImUoTKqXrcn2uLYXrp9xu6ogX89IRVKExDDNVy1mdpP3NV572duv26hCRheHVFetWgfkFjFNczIFW-rT5rFreZTPDfSt53MpC0jLKYfMNLEeufACZIaCgpKu1Rui1HCg1sle0IdJmohHniA2vJOThHftrbL7heXxNWsHlfqwKe1Uni3nv2jyzM0bTN_6H--ZcDRUFWoLDA_7zFOE28WLlDcb6aLtXVCJvELR77Bc6H3yQwO1-hyDqkmSbl25eErE4GqqCCnFcs14Wm8xeJ2umJB47mKIdEPnDEVIBkVm64Y_zhiWqIqsXcyJ9hsZ0djbm2xUzJP8C_QAfUdYrRNTEG8Ud2u8QQLewdspxRB2K7JZkCzJaickdV87Y5f_5wqeCf
 # Restaurant endpoints
 ### Get all restaurants
 GET http://localhost:5193/api/Restaurants
+#Authorization: Bearer {{token}}
 
 ### Get restaurant by Id
 GET http://localhost:5193/api/Restaurants/2
+Authorization: Bearer {{token}}
 
 ### Restaurant not found
 GET http://localhost:5193/api/Restaurants/2
@@ -64,7 +66,7 @@ DELETE http://localhost:5193/api/restaurant/2222/dishes
 DELETE http://localhost:5193/api/restaurant/2/dishes/6
 
 ### User Register
-POST http://localhost:5193/register
+POST http://localhost:5193/api/identity/register
 Content-Type: application/json
 
 {
@@ -73,7 +75,7 @@ Content-Type: application/json
 }
 
 ### User Login
-POST http://localhost:5193/login
+POST http://localhost:5193/api/identity/login
 Content-Type: application/json
 
 {
