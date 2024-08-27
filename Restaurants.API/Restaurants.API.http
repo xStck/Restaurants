@@ -63,3 +63,21 @@ DELETE http://localhost:5193/api/restaurant/2222/dishes
 ### Delete dish by id for specific restaurant
 DELETE http://localhost:5193/api/restaurant/2/dishes/6
 
+### User Register
+POST http://localhost:5193/register
+Content-Type: application/json
+
+{
+  "email": "a@a.com",
+  "password": "Asdfasdf1!"
+}
+
+### User Login
+POST http://localhost:5193/login
+Content-Type: application/json
+
+{
+  "email": "a@a.com",
+  "password": "Asdfasdf1!"
+}
+
