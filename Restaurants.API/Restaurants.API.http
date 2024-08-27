@@ -83,3 +83,14 @@ Content-Type: application/json
   "password": "Asdfasdf1!"
 }
 
+### Update user details
+PATCH http://localhost:5193/api/identity/user
+Content-Type: application/json
+Authorization: Bearer {{token}}
+
+{
+  "dateOfBirth": "01-01-2022",
+  "Nationality": "Polish"
+}
+
+
