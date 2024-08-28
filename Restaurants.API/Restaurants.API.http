@@ -1,5 +1,6 @@
 @Restaurants.API_HostAddress = http://localhost:5193
-@token = CfDJ8I1opdSQg8FCuZ6ipOkfd9nrRQDl4lQEXnmdHt-uo454NLZzj7Qkmr3h4xzWD7wbS0zvQK-BO5BDs9vHPgP8VY4BlQhIdy93bB2wgqj8zlmQYRoHY0R47rXORudxAxta590YuR5enk3bD-om6gJx4GoeNfBTAIcsmiX4GXGWmtWkANrguZ9teli8PevaecQFLQy8PEQb--8T-o6sCJKeL97gz1tgBp55YXH_HCkmID3U3rDJvq42EKv9Mg1wzlCg9UKG_9F-aVwMFKbWpWxO-q1PGoqZ_tSQoS5zJIwTtQImUoTKqXrcn2uLYXrp9xu6ogX89IRVKExDDNVy1mdpP3NV572duv26hCRheHVFetWgfkFjFNczIFW-rT5rFreZTPDfSt53MpC0jLKYfMNLEeufACZIaCgpKu1Rui1HCg1sle0IdJmohHniA2vJOThHftrbL7heXxNWsHlfqwKe1Uni3nv2jyzM0bTN_6H--ZcDRUFWoLDA_7zFOE28WLlDcb6aLtXVCJvELR77Bc6H3yQwO1-hyDqkmSbl25eErE4GqqCCnFcs14Wm8xeJ2umJB47mKIdEPnDEVIBkVm64Y_zhiWqIqsXcyJ9hsZ0djbm2xUzJP8C_QAfUdYrRNTEG8Ud2u8QQLewdspxRB2K7JZkCzJaickdV87Y5f_5wqeCf
+@token = CfDJ8I1opdSQg8FCuZ6ipOkfd9mHzKsVxEm8iYK_YFmuzwCyMK0CgyQlw0fJEKVU3WI8piSdflIWALIQrJTkT75BAsiCzV9AfZRAJCOuryiwk0T-H_XRmwXBatD3mosT-RD6uCwYBvlSAMcha_SJIipQw93tWHss6VxLECYHYdVh70M69VowYGSYeUaG2xGcvOuECbaWsePpaDpKciUsG3y1DscUUillixel6gM9XSMryied63YF0SNU1_lU5sK332EaW-UFAH-vfQk6eKjoxeFbEFNNdaKgawDIj-sCwSNtp5G2etJhJkpO24WJPZ6vHShHX7cAlSF0nSaECC8DR4tq-YE7N5m5-_i0UQDKkjSryzNfSw5jRVgYnJuyHOZMmbsLGN6QnJJMCnUJve3PFC28KyskR0Mzhl6fRgCfzvGYMIO_17hlgfGFQJtkvlxt629ns9rKenu5PUoc7sbOMqHyiwo-vimtEgJn_UvB_riXx4w_tgbIs5fprE-2jT_3FxgcFsGXZybN1bXowt4KKux0p0N_XNDNId8dxCd8lS_SOaoLs0aaYMlyRmBAF1CgFzRy6mbyThqzZHBPxRNrgzArd1Rzv2GQNMQJ356o08Byad4B3FlhgqxLvBImAtxWnNDN2vvWYKV6IFfsZgMeVUzYLiFN2cJgTCe9li05B-uL4a-6TjC5lIMa0ZL6KbV_DRbF9_T0NEioRLvzDovewk_uSDPAS3qs67LLn0Sa-iU1KsHEaP9sUKClmlT-dywEoVLbU4-Clp8j_cFyTN141C8kT-ZNA7gDUC0V0COZBiHX-_tI
+
 # Restaurant endpoints
 ### Get all restaurants
 GET http://localhost:5193/api/Restaurants
@@ -13,8 +14,9 @@ Authorization: Bearer {{token}}
 GET http://localhost:5193/api/Restaurants/2
 
 ### Add new restaurant
-POST  api/Restaurants
+POST  http://localhost:5193/api/Restaurants
 Content-Type: application/json
+Authorization: Bearer {{token}}
 
 {
   "Name": "Test Restaurant",
@@ -70,7 +72,7 @@ POST http://localhost:5193/api/identity/register
 Content-Type: application/json
 
 {
-  "email": "a@a.com",
+  "email": "user@test.com",
   "password": "Asdfasdf1!"
 }
 
@@ -79,7 +81,7 @@ POST http://localhost:5193/api/identity/login
 Content-Type: application/json
 
 {
-  "email": "a@a.com",
+  "email": "owner@test.com",
   "password": "Asdfasdf1!"
 }
 
@@ -92,5 +94,7 @@ Authorization: Bearer {{token}}
   "dateOfBirth": "01-01-2022",
   "Nationality": "Polish"
 }
+
+
 
 
