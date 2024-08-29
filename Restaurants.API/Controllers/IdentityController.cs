@@ -2,6 +2,7 @@ using MediatR;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Restaurants.Application.User.Commands.AssignUserRole;
+using Restaurants.Application.User.Commands.UnassignUserRole;
 using Restaurants.Application.User.Commands.UpdateUserDetails;
 using Restaurants.Domain.Constants;
 
@@ -22,6 +23,14 @@ public class IdentityController(IMediator mediatR) : ControllerBase
     [HttpPost("userRole")]
     [Authorize(Roles = UserRoles.Admin)]
     public async Task<IActionResult> AssignUserRole(AssignUserRoleCommand command)
+    {
+        await mediatR.Send(command);
+        return NoContent();
+    }
+
+    [HttpDelete("userRole")]
+    [Authorize(Roles = UserRoles.Admin)]
+    public async Task<IActionResult> UnassignUserRole(UnassignUserRoleCommand command)
     {
         await mediatR.Send(command);
         return NoContent();
