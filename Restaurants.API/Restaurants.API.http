@@ -1,5 +1,5 @@
 @Restaurants.API_HostAddress = http://localhost:5193
-@token = CfDJ8I1opdSQg8FCuZ6ipOkfd9mJpVgxZPhppqY7wrkae2FSTaefO-8_oGL8BKiOPSEoRfjhLmLZmiKLVI-hxWMESM4yv_FuI81cppInzpVnuikM8cJzMgOwbZ6Cp51ixo-ccdmOyX3y2EdEQC9V0-MNnIlw3Isnhr3vdyiDMkEMdh_QKo2V3toMNWENtOQc4O8k99CEsl-2g0uiBZANlbRWbMsjlRtM6JJsK10vv_UpSpUX4hoz-mZ3e4ttPXXllVEqSaz-cWyAfowKs-r_42enCK6Ycw-jGuDft9MMxQxN0Ul_FE8NlkCzITgfq4InB3Yi0X0O2ahhLf8Ym05uPde_0KcdB71xZe3aexH5wWoeg98Q_V6pzaAnFbDZkgOjyG2fc-gV24xQBfCMxVnxHj2EsnujYDONC2AGWZv3LuNO8OFVS7Y-p2tP4rtOaeYLB7WMeq-zYgdVmo4V5IKDETWMZY4h-5JMdWCGeVcNqle-gBkBmt1QHci66qWtqmNzP99ls7tXHeTC2O4EQbVZFcysXmYRPEk5cmUn3ovKDKEiI0Yq8WIbJAdFkdYYO1Pl-ZE19ZoX_Rf9T-iIPRHuzZmnzhXYd1dRpLoElyEenOGsIbupPpdVzIAAUfZNxx_ZS5X0qio1yP6l5iGNKH-I1iCW3305MvFxRMXL1o0vRD7e4DqBdPtfdG27GpZWmmz8yI0MF74lDXKxWP9Pn_eZShqwiQNTQ4mXWX3nQwPf7LCD5m-pjoNIfVtKvvtu3U8gmijofbmXI1oV6nmO_b5sK7FeVI3IIwO1ul3fvwzWuDYA3W1DHfmH_fBRFQ3E1g9RL1dV5D7WfpZJbQzl0aECX2sfrZK74zYUmTdta67WrcnRd-Za9jObWp40VI1AqxyfauE0lQ
+@token = CfDJ8I1opdSQg8FCuZ6ipOkfd9lUpvBtNSyeUiz3Fel5NDI4VELcNmJInOqZ2vFbFk3sozzY5g4-ufgWOmCCNDwQXr8BywNh0JS9D6ahI8r4dYo3Y0e_85RSrMnSwVQwyz5TQLHdpqGa88H86dj8JhJwqSsTNNA5Mr5g9Sqc1CU67l17cQVKrNe_Vso7OC5t8_tkRP-QJJaso7_oL7-Q9F61cgcdpB3oRv9rOpBsZfYZlo2kuQAryBsUJOvvDn63NZscuCEX7qf9EsqmOQxm6WF6p1Ft_IU02S1tDg5z7X3IREeDcvx_Jk2Ow5myryPqbIuc-8riBmlq7b-n_LS--yH130yRyHny2vsgbJji5KGUBh742lRJz6H7FAfYaljNHP36lRkK7WX0XEDd9y7YgGiB4zhTEv3WvyxLjC4IO2uGkdERDZR0HjCIdlz5XjbPvsyszha7tmgAeuRcQ4USFInVBgUaJ5fA4jqgTwXz-LvaH6j3CD_e-hkzrSWpGmQH2o_gE_zvlxrMflVe7uouFZsBZWPVQET9EdVDpa7qdp-hmbjAJOHSaedv5cFG3KZfeJbwJ_y61L_th2XwwB4fBIvHT7CoK8TSsPSCpTYU42UEkbQK4TsC46SZ0zkEMtPYXtCsKySSZe07tzUPtlMwbsSrvI-fJI4ozWq24N5ItT8d1zV3bf7MpNgIv6IB1HiA6NmfcSDm0w_hNxqAJQYIzBQwDISzkY5d2wbtuAvsgtM6I2gmBC_KuYbzyDXDNdD56Ei_3waKkV8Es2to7Mx6kPunh8yrslkbn52j2Sk4AvHiahEIbJLosyAaMSAzOumV7MxnzXxevIjfYgDTb4O0vDsBrjpTFTWiYztqpPPO8K2Hlt6l
 
 # Restaurant endpoints
 ### Get all restaurants
@@ -82,7 +82,7 @@ POST http://localhost:5193/api/identity/login
 Content-Type: application/json
 
 {
-  "email": "owner@test.com",
+  "email": "a@a.com",
   "password": "Asdfasdf1!"
 }
 
@@ -96,6 +96,14 @@ Authorization: Bearer {{token}}
   "Nationality": "Polish"
 }
 
+### Assign role (admin)
+POST http://localhost:5193/api/identity/userRole
+Content-Type: application/json
+Authorization: Bearer {{token}}
 
+{
+"UserEmail": "a@a.com",
+"RoleName": "Owner"
+}
 
 

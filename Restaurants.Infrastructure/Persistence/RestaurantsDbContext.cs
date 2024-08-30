@@ -12,11 +12,17 @@ internal class RestaurantsDbContext(DbContextOptions<RestaurantsDbContext> optio
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
         base.OnModelCreating(modelBuilder);
+        
         modelBuilder.Entity<Restaurant>()
             .OwnsOne(r => r.Address);
+        
         modelBuilder.Entity<Restaurant>()
             .HasMany(r => r.Dishes)
             .WithOne()
             .HasForeignKey(d => d.RestaurantId);
+        
+        modelBuilder.Entity<Restaurant>().HasOne( r => r.Owner)
+            .WithMany(d => d.OwnedRestaurants)
+            .HasForeignKey(d => d.OwnerId);
     }
 }
