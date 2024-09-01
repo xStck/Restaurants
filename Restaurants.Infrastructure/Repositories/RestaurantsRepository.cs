@@ -1,4 +1,6 @@
+using System.Linq.Expressions;
 using Microsoft.EntityFrameworkCore;
+using Restaurants.Application.Common;
 using Restaurants.Domain.Entities;
 using Restaurants.Domain.Repositories;
 using Restaurants.Infrastructure.Persistence;
@@ -43,7 +45,11 @@ internal class RestaurantsRepository(RestaurantsDbContext dbContext) : IRestaura
         await dbContext.SaveChangesAsync();
     }
 
-    public async Task<(IEnumerable<Restaurant>, int)> GetAllMatchingAsync(string? searchPhrase, int pageSize, int pageNumber)
+    public async Task<(IEnumerable<Restaurant>, int)> GetAllMatchingAsync(string? searchPhrase,
+        int pageSize,
+        int pageNumber,
+        string? sortBy,
+        SortDirection sortDirection)
     {
         var searchPhraseLower = searchPhrase?.ToLower();
         var baseQuery = dbContext.Restaurants
@@ -51,10 +57,24 @@ internal class RestaurantsRepository(RestaurantsDbContext dbContext) : IRestaura
                         x.Name.ToLower().Contains(searchPhraseLower) ||
                         x.Description.ToLower().Contains(searchPhraseLower));
         var totalCount = await baseQuery.CountAsync();
+        
+        if (sortBy != null)
+        {
+            var columnsSelectorObject = new Dictionary<string, Expression<Func<Restaurant, object>>>
+            {
+                { nameof(Restaurant.Name), r => r.Name },
+                { nameof(Restaurant.Description), r => r.Description },
+                { nameof(Restaurant.Category), r => r.Category }
+            };
+            baseQuery = sortDirection == SortDirection.Ascending
+                ? baseQuery.OrderBy(columnsSelectorObject[sortBy])
+                : baseQuery.OrderByDescending(columnsSelectorObject[sortBy]);
+        }
+
         var restaurants = await baseQuery
             .Skip(pageSize * (pageNumber - 1))
             .Take(pageSize)
-            .Include(r => r.Dishes).ToListAsync(); 
-        return (restaurants, totalCount);    
+            .Include(r => r.Dishes).ToListAsync();
+        return (restaurants, totalCount);
     }
 }
