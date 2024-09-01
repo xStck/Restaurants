@@ -3,7 +3,7 @@
 
 # Restaurant endpoints
 ### Get all restaurants
-GET http://localhost:5193/api/Restaurants?searchPhrase=Name_1
+GET http://localhost:5193/api/Restaurants?searchPhrase=Name_1&pageNumber=7&pageSize=10
 Authorization: Bearer {{token}}
 
 ### Get restaurant by Id
