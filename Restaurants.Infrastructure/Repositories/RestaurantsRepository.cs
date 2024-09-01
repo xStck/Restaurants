@@ -19,6 +19,12 @@ internal class RestaurantsRepository(RestaurantsDbContext dbContext) : IRestaura
         return restaurant;
     }
 
+    public async Task<IEnumerable<Restaurant>> GetByUserIdAsync(string userId)
+    {
+        var restaurants = await dbContext.Restaurants.Where(x => x.OwnerId == userId).ToListAsync();
+        return restaurants;
+    }
+
     public async Task<int> CreateAsync(Restaurant restaurant)
     {
         dbContext.Restaurants.Add(restaurant);
@@ -36,4 +42,14 @@ internal class RestaurantsRepository(RestaurantsDbContext dbContext) : IRestaura
     {
         await dbContext.SaveChangesAsync();
     }
+
+    public async Task<IEnumerable<Restaurant>> GetAllMatchingAsync(string? searchPhrase)
+    {
+        var searchPhraseLower = searchPhrase?.ToLower();
+        var restaurants = await dbContext.Restaurants
+            .Where(x => searchPhraseLower == null || 
+                        x.Name.ToLower().Contains(searchPhraseLower) || 
+                        x.Description.ToLower().Contains(searchPhraseLower))
+            .Include(r => r.Dishes).ToListAsync(); 
+        return restaurants;    }
 }

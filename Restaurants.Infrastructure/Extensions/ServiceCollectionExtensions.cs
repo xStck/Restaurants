@@ -31,9 +31,11 @@ public static class ServiceCollectionExtensions
             .AddClaimsPrincipalFactory<RestaurantUserClaimsPrincipalFactory>()
             .AddEntityFrameworkStores<RestaurantsDbContext>();
         services.AddScoped<IAuthorizationHandler, MinimumAgeRequirementHandler>();
+        services.AddScoped<IAuthorizationHandler, MinimumOwnedRestaurantsRequirementHandler>();
         services.AddAuthorizationBuilder()
             .AddPolicy(PolicyNames.HasNationality, builder => builder.RequireClaim(AppClaimTypes.Nationality, "Polish"))
-            .AddPolicy(PolicyNames.AtLeast20, builder => builder.AddRequirements(new MinimumAgeRequirement(20)));
+            .AddPolicy(PolicyNames.AtLeast20, builder => builder.AddRequirements(new MinimumAgeRequirement(20)))
+            .AddPolicy(PolicyNames.AtLeast2RestaurantsOwned, builder => builder.AddRequirements(new MinimumOwnedRestaurantsRequirement(2)));
         services.AddScoped<IRestaurantAuthorizationService, RestaurantAuthorizationService>();
     }
 }
