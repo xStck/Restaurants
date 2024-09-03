@@ -5,5 +5,5 @@ namespace Restaurants.Domain.Interfaces;
 
 public interface IRestaurantAuthorizationService
 {
-    bool Authorize(Restaurant restaurant, ResourceOperaion resourceType);
+    bool Authorize(Restaurant restaurant, ResourceOperation resourceType);
 }

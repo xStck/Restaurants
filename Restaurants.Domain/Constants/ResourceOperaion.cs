@@ -1,6 +1,6 @@
 namespace Restaurants.Domain.Constants;
 
-public enum ResourceOperaion
+public enum ResourceOperation
 {
     Create,
     Read,
