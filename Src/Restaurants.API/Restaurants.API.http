@@ -1,0 +1,111 @@
+@Restaurants.API_HostAddress = http://localhost:5193
+@token = CfDJ8I1opdSQg8FCuZ6ipOkfd9lUQr5Cv47K3q4mSafgBj7zlVwh639QH4zAyKdHItQ1XTkozavQNoJl0OzgK5eszzbEQJAHP1HsObR5jCD7Kt_pHHlj8PhkB4iFff6jOlxTbDrMtNNmH02pwZcvh-yRx06z2G8UtvGGrFqkxau0q4XEgQw4T2Unh7f_PW1c_FuQol1k0BYOirgU6Nmv5cgkzUPmWrBEdpM3uCWHpgQcre5jCHp2GM1tou2IuSmwto7NNlAzm_L44nx2paShEjnvZveA4kV4BWW_7IlbhoVhe-x00y6W_9uaq_UGRfuPTlbUxoJTav1pIV8NA678jmFSV5BBbp-SW8Mbf74pqK1spmP6d5Tu2IYdtoROcnlVcHwjMc2--JJHYPiKaJ-ZTeiiwAVSUggxKM2eV30iic1NNEz5RmvJ-oKrdrUJPP9OQsOreX2JcUMolq-dzA0Obdc-_KhgfX3km5SzzqY7E2dDvyKGdYGRJpSuzZ7iJOGexzTLEplNp0H2cJ_rP_8OeQ-zIVBpUPLRReJRbzlrhFVICE4rIXMqsm_kO-sHT-eCsTGr2MSArrHpub8QjvX2ZOskI1_MrfwLyGoteHSo4oG0xi07HHP7lwC_OkVm5j4F2BXVIl0ps0mFCAx1bL83C1h4jLP6UmVTI38yAjLu3WCtRz_S_V1sPiWC8_n1HW-uPQjKZOIq3XA1EGETI1QTXjuZkHkoiPCXYMVX_WlURk8fsySU-uKlDBoQ2qAci0iHjOvxZ2wYibcs8tTiYCMfId6pUAtbGa74UHThrNWnFc932CLqDKgA3PhFmIbd5Fonb_E3OwcxYUVAvq6o6UYe4W-eGsclaydv3-otKV7Lxmup2Srk
+
+# Restaurant endpoints
+### Get all restaurants
+GET http://localhost:5193/api/Restaurants?searchPhrase=Name_1&pageNumber=1&pageSize=5&sortBy=Description
+Authorization: Bearer {{token}}
+
+### Get restaurant by Id
+GET http://localhost:5193/api/Restaurants/2
+Authorization: Bearer {{token}}
+
+### Restaurant not found
+GET http://localhost:5193/api/Restaurants/2
+
+### Add new restaurant
+POST  http://localhost:5193/api/Restaurants
+Content-Type: application/json
+Authorization: Bearer {{token}}
+
+{
+  "Name": "Test Restaurant",
+  "Description": "Test Description",
+  "Category": "Polish",
+  "HasDelivery": true,
+  "ContactEmail": "test@test.com",
+  "ContactNumber": "123456789",
+  "City": "Test City",
+  "Street": "Test Street",
+  "PostalCode": "22-222"
+}
+
+### Delete restaurant
+DELETE http://localhost:5193/api/Restaurants/14
+Authorization: Bearer {{token}}
+
+### Update restaurant
+PATCH http://localhost:5193/api/Restaurants/7
+Content-Type: application/json
+Authorization: Bearer {{token}}
+
+{
+  "Name": "Modified name",
+  "Description": "Modified description",
+  "HasDelivery": true
+}
+
+### Create dish
+POST http://localhost:5193/api/restaurant/2/dishes
+Content-Type: application/json
+
+{
+  "name": "Example Dish",
+  "description": "Delicious dish made with fresh ingredients.",
+  "price": 2,
+  "kiloCalories": 2,
+  "restaurantId": 1
+}
+
+### Get all dishes for specific restaurant
+GET http://localhost:5193/api/restaurant/2/dishes
+Authorization: Bearer {{token}}
+
+### Get dish by id for specific restaurant
+GET http://localhost:5193/api/restaurant/2/dishes/8
+
+### Delete all dishes for specific restaurant
+DELETE http://localhost:5193/api/restaurant/2222/dishes
+
+### Delete dish by id for specific restaurant
+DELETE http://localhost:5193/api/restaurant/2/dishes/6
+
+### User Register
+POST http://localhost:5193/api/identity/register
+Content-Type: application/json
+
+{
+  "email": "user@test.com",
+  "password": "Asdfasdf1!"
+}
+
+### User Login
+POST http://localhost:5193/api/identity/login
+Content-Type: application/json
+
+{
+  "email": "a@a.com",
+  "password": "Asdfasdf1!"
+}
+
+### Update user details
+PATCH http://localhost:5193/api/identity/user
+Content-Type: application/json
+Authorization: Bearer {{token}}
+
+{
+  "DateOfBirth": "1990-01-01",
+  "Nationality": "Polish"
+}
+
+### Assign role (admin)
+POST http://localhost:5193/api/identity/userRole
+Content-Type: application/json
+Authorization: Bearer {{token}}
+
+{
+  "UserEmail": "a@a.com",
+  "RoleName": "Owner"
+}
+
+
