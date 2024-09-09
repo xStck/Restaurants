@@ -35,10 +35,16 @@ internal class RestaurantSeeder(RestaurantsDbContext dbContext) : IRestaurantSee
 
     private IEnumerable<Restaurant> GetRestaurants()
     {
+        User user = new User
+        {
+            Email = "seeder-user@test.com"
+        };
+        
         List<Restaurant> restaurants =
         [
             new Restaurant
             {
+                Owner = user,
                 Name = "KFC",
                 Category = "Fast Food",
                 Description =
@@ -70,6 +76,7 @@ internal class RestaurantSeeder(RestaurantsDbContext dbContext) : IRestaurantSee
             },
             new Restaurant
             {
+                Owner = user,
                 Name = "McDonald",
                 Category = "Fast Food",
                 Description =
