@@ -13,4 +13,5 @@ public class Restaurant
     public List<Dish> Dishes { get; set; } = [];
     public User Owner { get; set; } = default!;
     public string OwnerId { get; set; } = default!;
+    public string? LogoUrl { get; set; }  
 }

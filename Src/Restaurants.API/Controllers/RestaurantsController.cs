@@ -4,6 +4,7 @@ using Microsoft.AspNetCore.Mvc;
 using Restaurants.Application.Restaurants.Commands.CreateRestaurant;
 using Restaurants.Application.Restaurants.Commands.DeleteRestaurant;
 using Restaurants.Application.Restaurants.Commands.UpdateRestaurant;
+using Restaurants.Application.Restaurants.Commands.UploadRestaurantLogo;
 using Restaurants.Application.Restaurants.Dtos;
 using Restaurants.Application.Restaurants.Queries.GetAllRestaurants;
 using Restaurants.Application.Restaurants.Queries.GetRestaurantById;
@@ -57,6 +58,21 @@ public class RestaurantsController(IMediator mediator) : ControllerBase
     public async Task<IActionResult> Update([FromRoute] int id, [FromBody] UpdateRestaurantCommand command)
     {
         command.Id = id;
+        await mediator.Send(command);
+        return NoContent();
+    }
+
+    [HttpPost("{id}/logo")]
+    public async Task<IActionResult> UploadLogo([FromRoute] int id, IFormFile file)
+    {
+        using var stream = file.OpenReadStream();
+
+        var command = new UploadRestaurantLogoCommand()
+        {
+            RestaurantId = id,
+            FileName = file.FileName,
+            File = stream
+        };
         await mediator.Send(command);
         return NoContent();
     }

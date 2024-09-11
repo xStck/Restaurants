@@ -6,7 +6,7 @@ using Restaurants.Domain.Interfaces;
 
 namespace Restaurants.Infrastructure.Autorization.Services;
 
-public class RestaurantAuthorizationService(
+internal class RestaurantAuthorizationService(
     ILogger<RestaurantAuthorizationService> logger,
     IUserContext userContext) : IRestaurantAuthorizationService
 {
